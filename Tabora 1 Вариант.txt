@@ -1,0 +1,23 @@
+# Вариант 1
+1.Вычислить рекурсивно 
+
+def sum_rec(x, n):
+    if n == 1:
+        return x / 1
+    def pow_rec(a, b):
+        if b == 1:
+            return a
+        return a * pow_rec(a, b - 1)
+    def fact_rec(k):
+        if k == 1:
+            return 1
+        return k * fact_rec(k - 1)
+
+    return pow_rec(x, n) / fact_rec(n) + sum_rec(x, n - 1)
+2.Напишите функцию count_vowels(s) которая рекурсивно считает количество строчных гласных букв в строке def count_vowels(s):
+
+def count_vowels(s):
+    vowels = "aeiouаеёиоуыэюя"
+    if s == "":
+        return 0
+    return (1 if s[0] in vowels else 0) + count_vowels(s[1:]
