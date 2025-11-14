@@ -1,3 +1,4 @@
+#Variant 5
 def count_uppercase(d):
   count = 0
   for val in d.values():
