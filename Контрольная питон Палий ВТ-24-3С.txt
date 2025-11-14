@@ -1,0 +1,20 @@
+2 Вариант
+
+1 Вычислить рекурсию:
+
+import math 
+
+def recursive_sum(n, x):
+    if n==1:
+return 1/1 + math.sqrt(abs)x
+return recursive_sum(-1, x)+(1/n + math_sqrt(abs)x))
+  
+
+2. Реалезуйте рекурсивную функцию sum_digits(n), которая возвращает сумму всех цифр положительного числа.
+
+def sum_digits(n)
+    if n<10:
+return n
+  return n %10 sum_digits(n // 10)
+
+
