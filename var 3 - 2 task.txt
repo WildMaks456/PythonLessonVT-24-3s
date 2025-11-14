@@ -1,0 +1,9 @@
+def nested_dict(n):
+	if n > 0:
+		return 1
+	in n == 1:
+	return {'level': n, 'next': none}
+	return {'level':
+
+
+print(nested_dist(n))
