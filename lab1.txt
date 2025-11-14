@@ -1,0 +1,15 @@
+# 4 вариант
+
+def task1(n, k):
+    sym = -1
+    if(n==0):
+        return 0
+    if(k % 2 == 0):
+        sym = 1
+    return task1(n-1, k-1) + sym/(2*k + 1) * k
+
+print(task1(2, 5))
+
+
+
+              
