@@ -1,0 +1,62 @@
+import math
+
+
+	
+def my_pow(x,dec):
+	if(dec==0):
+		return 1
+	if(dec<0):
+		return (1 / my_pow(x,(dec * (-1))))
+	return (x * my_pow(x, (dec - 1)))
+
+def my_fact(n):
+	if(n<0):
+		print("err")
+		return 0
+	if(n==0 or n==1):
+		return 1
+	return (n*my_fact(n-1))
+	
+def s(x,n):
+	if(n == 0):
+		return 0
+	temp_res = my_pow(x, n) / math.sqrt(my_fact(n) + my_pow(n, 3))
+	return (temp_res + s(x,(n-1)))
+	
+	
+	
+def razryad(n):
+	if((n/10) >= 1):
+		return (1 +razryad(int(n/10)))
+	if((n/10) < 1):
+		return 1
+	
+	
+	
+def sum_unique_digits(n):
+	if((n/10) < 1):
+		return n
+	if((n/10) >= 1):
+		res1 = int(n%10)
+		res2 = int(sum_unique_digits(int(n/10)))
+		if ((razryad(n)%2) == 0):
+			return (-res1 + res2)
+		else:
+			return (res1 + res2)
+	
+	
+
+	
+def main():
+	x = int(input("Input x for first task: "))
+	n = int(input("Input n for first task: "))
+	
+	print("S = ", s(x,n))
+	
+	n = int(input("Input n for second task: "))
+	
+	print("result = ", sum_unique_digits(n))
+	
+	
+	
+main()
