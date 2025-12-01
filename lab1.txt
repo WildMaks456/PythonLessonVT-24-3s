@@ -1,14 +1,38 @@
-# 4 вариант
+# 1 вариант
 
-def task1(n, k):
-    sym = -1
+def fact(i):
+    if(i == 0):
+        return 0
+    if(i == 1):
+        return 1
+    return i * fact(i-1)
+
+def task1(n, x):
     if(n==0):
         return 0
-    if(k % 2 == 0):
-        sym = 1
-    return task1(n-1, k-1) + sym/(2*k + 1) * k
+    if(n == 1):
+        return x / n + 1**2
+    return ((x**n)  / (fact(n) + n**2)) + task1(n-1, x) 
 
-print(task1(2, 5))
+print("task1",task1(5, 2))
+
+
+#task 2
+
+def remove_digits(s):
+    if s == "":
+        return ""
+    first = s[0]
+    tail = s[1:]
+
+    if first.isdigit() and first in ("1", "2", "3", "5", "7"):
+        return remove_digits(tail)
+    else:
+        return first + remove_digits(tail)
+
+
+print("task2", remove_digits("abc123d4"))
+
 
 
 
