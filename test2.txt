@@ -1,0 +1,13 @@
+import math
+
+def pow(x, n):
+    if n == 0:
+        return 1
+    return pow(x, n-1) * x
+
+def sum(x, n):
+    if n == 1:
+        return 2 / math.log(1 + 1)
+    return sum(x, n-1) + (pow(2, n) / math.log(pow(n, 2) + 1))
+
+print(sum(2, 3))
