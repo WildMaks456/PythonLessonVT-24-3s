@@ -74,7 +74,7 @@ class MainWindow(QWidget):
         if button is None:
             self.info.setText("Неверный тип кнопки!")
         else:
-            self.info.setText("Кнопка добавлена ниже ↓")
+            self.info.setText("Кнопка добавлена ниже")
             self.layout.addWidget(button)
 
 

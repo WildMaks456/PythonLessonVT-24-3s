@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QVBoxLayout,
-    QLineEdit, QPushButton, QLabel
+    QLineEdit, QPushButton, QLabel, QHBoxLayout
 )
 from PyQt5.QtCore import Qt
 
@@ -12,6 +12,7 @@ class AddProductForm(QWidget):
         self.setWindowTitle("Добавление товара")
 
         layout = QVBoxLayout()
+        hlayout = QHBoxLayout()
 
     
         self.name_input = QLineEdit()
@@ -29,8 +30,9 @@ class AddProductForm(QWidget):
         self.hint_label.setAlignment(Qt.AlignCenter)
         self.hint_label.setStyleSheet("color: gray;")
 
-        layout.addWidget(self.name_input)
-        layout.addWidget(self.price_input)
+        hlayout.addWidget(self.name_input)
+        hlayout.addWidget(self.price_input)
+        layout.addLayout(hlayout)
         layout.addWidget(self.save_btn)
         layout.addWidget(self.hint_label)
 
