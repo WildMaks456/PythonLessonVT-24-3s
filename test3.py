@@ -1,4 +1,4 @@
-# вариант 4
+# вариант 2
 import sys
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget,
