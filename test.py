@@ -1,5 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget
+#3 вариант
+
 
 
 class FromProduct:
@@ -21,6 +23,7 @@ class FromProduct:
             self.builder.add_controls()
             return self.builder.get_result()
         
+        
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -28,7 +31,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("My App")
         button = QPushButton("Press Me!")
 
-        # Set the central widget of the Window.
+        
         self.setCentralWidget(button)
 
 
