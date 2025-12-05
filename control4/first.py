@@ -1,3 +1,4 @@
+#Вариант 3
 from PyQt5 import QtWidgets
 from abc import ABC, abstractmethod
 
