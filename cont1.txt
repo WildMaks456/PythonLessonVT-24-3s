@@ -1,0 +1,28 @@
+import math
+
+def pow(x, n):
+    if n == 0:
+        return 1
+    return pow(x, n-1) * x
+
+def func(x, n):
+    if n == 1:
+        return 1
+    return func(x, n-1) + (pow(x, n) / (pow(math.exp(1), n + 2) + pow(n, 2))) 
+
+
+
+def collect_keys(n):
+    keys_list = []
+
+    for key in n:
+        keys_list.append(key)
+        if type(n[key]) == dict: 
+            keys_list += collect_keys(n[key]) 
+    return keys_list
+
+
+dict1 = {"a": 1,"b": {"c": 2, "d": 3, "q": 2}}
+
+
+print(collect_keys(dict1))
