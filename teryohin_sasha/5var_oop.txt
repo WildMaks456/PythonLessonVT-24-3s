@@ -1,0 +1,79 @@
+import sys
+from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout
+
+
+app = QApplication(sys.argv)
+window = QWidget()
+window.setWindowTitle("1")
+layout = QVBoxLayout()
+
+class BaseButton:
+	#############
+	def click(self):
+		print("Base button clicked")
+	def get_widget(self):
+		#######################
+		raise NotImplementedError
+		
+		
+		
+class SimpleButton(BaseButton):
+	##############
+	def __init__(self, text):
+		self.btn = QPushButton(text)
+		
+	def get_widget(self):
+		return self.btn
+		
+		
+class CounterDecorator(BaseButton):
+	def __init__(self, btn:BaseButton):
+		self.counter = 0
+		self.btn = btn
+	def click(self):
+		self.counter += 1
+		print(f"Clicked {self.counter}")
+		self.btn.click()
+	def get_widget(self):
+		return self.btn
+		
+		
+class LoggingDecorator(BaseButton):
+	def __init__(self, btn:BaseButton):
+		self.btn = btn
+	def click(self):
+		print("Log click")
+		self.btn.click()
+	def get_widget(self):
+		return self.btn
+	
+	
+class StyleDecorator(BaseButton):
+	def __init__(self, btn:BaseButton, color):
+		self.color = color
+		self.btn = btn
+	def click(self):
+		print(f"{self.color} style")
+		self.btn.click()
+	def get_widget(self):
+		return self.btn
+		
+		
+		
+newbtn = SimpleButton("bread")
+countbtn = CounterDecorator(newbtn)
+logbtn = LoggingDecorator(countbtn)
+redbtn = StyleDecorator(logbtn, "red")
+
+layout.addWidget(redbtn)
+window.setLayout(layout)
+window.show()
+
+
+
+
+
+
+
+
+
