@@ -2,6 +2,14 @@ import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QLineEdit, QCheckBox
 from PyQt6.QtGui import QColor
 from PyQt6.QtCore import Qt
+import json
+import re
+
+
+with open('users.json', 'r', encoding='utf-8') as f:
+    users = json.load(f)
+
+
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -47,12 +55,22 @@ class MainWindow(QWidget):
         
 
     def apply_filter(self):
-        text = self.input_field.text()
+        kluch = self.input_field.text()
+        text = ""
         if self.checkbox.isChecked():
-            case = "С учётом регистра" 
+            case = "С учётом регистра"
+            for user in users:
+                name = user.get("name", "")
+                if any(kluch in ch for ch in name):
+                    text += name + " "
+
         else:
             case = "Без учёта регистра"
-            text = text.lower()
+            for user in users:
+                name = user.get("name", "")
+                if any(kluch.lower() in ch.lower() for ch in name):
+                    text += name + " "
+            
         self.label.setText(f"Фильтр: {text}\n{case}")
 
     def start3(self):
